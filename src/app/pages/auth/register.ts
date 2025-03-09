@@ -11,7 +11,7 @@ import { TranslocoModule } from '@jsverse/transloco';
 import { AppTopbar } from "../../layout/component/app.topbar";
 
 @Component({
-    selector: 'app-login',
+    selector: 'app-register',
     standalone: true,
     imports: [
     ButtonModule,
@@ -27,11 +27,11 @@ import { AppTopbar } from "../../layout/component/app.topbar";
 ],
     template: `
         <app-topbar />
-        <div class="bg-surface-50 dark:bg-surface-950 pt-20 flex items-center justify-center min-h-screen min-w-[100vw] overflow-hidden">
+        <div class="bg-surface-50 dark:bg-surface-950 pt-24 pb-8 flex items-center justify-center min-h-screen max-w-[100vw] overflow-hidden">
             <div class="flex flex-col items-center justify-center">
                 <div style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%)">
                     <div class="w-full bg-surface-0 dark:bg-surface-900 py-20 px-8 sm:px-20" style="border-radius: 53px">
-                        <div class="text-center mb-8">
+                    <div class="text-center mb-8">
                             <svg viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-8 w-16 shrink-0 mx-auto">
                                 <path
                                     fill-rule="evenodd"
@@ -49,55 +49,99 @@ import { AppTopbar } from "../../layout/component/app.topbar";
                                     />
                                 </g>
                             </svg>
-                            <div class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">{{ 'login.welcomeMessage' | transloco }}</div>
-                            <span class="text-muted-color font-medium">{{ 'login.signInMessage' | transloco }}</span>
+                            <div class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">{{ 'register.welcomeMessage' | transloco}}</div>
+                            <span class="text-muted-color font-medium">{{ 'register.signUpMessage' | transloco }}</span>
                         </div>
 
-                        <div>
-                            <label for="email1" class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">{{ 'login.emailLabel' | transloco }}</label>
-                            <input pInputText id="email1" name="email1" type="text" placeholder="{{ 'login.emailPlaceholder' | transloco }}" class="w-full md:w-[30rem] mb-8" [(ngModel)]="email" />
-
-                            <label for="password1" class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">{{ 'login.passwordLabel' | transloco }}</label>
-                            <p-password id="password1" name="password1" [(ngModel)]="password" placeholder="{{ 'login.passwordPlaceholder' | transloco }}" [toggleMask]="true" styleClass="mb-4" [fluid]="true" [feedback]="false"></p-password>
-
-                            <div class="flex items-center justify-between mt-2 mb-8 gap-8">
-                                <div class="flex items-center">
-                                    <p-checkbox [(ngModel)] ="checked" id="rememberme1" binary class="mr-2"></p-checkbox>
-                                    <label for="rememberme1">{{ 'login.rememberMeLabel' | transloco }}</label>
-                                </div>
-                                <span class="font-medium no-underline ml-2 text-right cursor-pointer text-primary">{{ 'login.forgotPasswordLabel' | transloco }}</span>
+                        <form (ngSubmit)="onRegister()" class="flex flex-col gap-4">
+                            <div>
+                                <label for="nome" class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">{{ 'register.firstNameLabel' | transloco }}</label>
+                                <input id="nome" name="nome" type="text" placeholder="{{ 'register.firstNamePlaceholder' | transloco }}" class="p-inputtext p-component w-full md:w-[30rem] mb-8" [(ngModel)]="nome" name="nome" required />
                             </div>
-                            <p-button label="{{ 'login.signInButtonLabel' | transloco }}" styleClass="w-full" routerLink="/"></p-button>
-                        </div>
+
+                            <div>
+                                <label for="cognome" class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">{{ 'register.lastNameLabel' | transloco }}</label>
+                                <input id="cognome" name="cognome" type="text" placeholder="{{ 'register.lastNamePlaceholder' | transloco }}" class="p-inputtext p-component w-full md:w-[30rem] mb-8" [(ngModel)]="cognome" name="cognome" required />
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">{{ 'register.emailLabel' | transloco }}</label>
+                                <input id="email" name="email" type="email" placeholder="{{ 'register.emailLPlaceholder' | transloco }}" class="p-inputtext p-component w-full md:w-[30rem] mb-8" [(ngModel)]="email" name="email" required />
+                            </div>
+
+                            <div>
+                                <label for="password" class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">{{ 'register.passwordLabel' | transloco }}</label>
+                                <p-password id="password" name="email" [(ngModel)]="password" placeholder="{{ 'register.passwordPlaceholder' | transloco }}" [toggleMask]="true" styleClass="mb-4" [fluid]="true" [feedback]="false"></p-password>
+                            </div>
+
+                            <div>
+                                <label for="confirmPassword" class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">{{ 'register.confirmPasswordLabel' | transloco }}</label>
+                                <p-password id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="{{ 'register.confirmPasswordPlaceholder' | transloco }}" [toggleMask]="true" styleClass="mb-4" [fluid]="true" [feedback]="false"></p-password>
+                            </div>
+
+                            <div class="flex items-center">
+                                <p-checkbox id="acceptTerms" [(ngModel)]="acceptTerms" name="acceptTerms" required></p-checkbox>
+                                <label for="acceptTerms" class="ml-2 text-sm" required>{{ 'register.acceptTermsLabel' | transloco }}</label>
+                            </div>
+
+                            <button pButton type="submit" label="{{ 'register.signUpButtonLabel' | transloco }}" class="w-full p-button-primary"></button>
+                        </form>
+
+
                         <div class="mt-5">
                             <div class="flex justify-center items-center">
-                                <label class="mr-2 font-semibold text-xl mb-2" for="toggleSwitch">{{ 'login.toggleSwitchLabel' | transloco }}</label>
+                                <label class="mr-2 font-semibold text-xl mb-2" for="toggleSwitch">{{ 'register.registerToggleSwitchLabel' | transloco }}</label>
                                 <p-toggleswitch id="toggleSwitch" [ngModel]="switchValue" (onChange)="toggleAuthMode()" />
                             </div>
                         </div>
-                    </div>
+
+            </div>
                 </div>
             </div>
         </div>
     `
 })
-export class Login implements OnInit {
-    email: string = '';
+export class Register implements OnInit {
+    nome = '';
 
-    password: string = '';
+    cognome = '';
 
-    checked: boolean = false;
+    email = '';
 
-    switchValue: boolean = false;
+    password = '';
+
+    confirmPassword = '';
+
+    acceptTerms = false;
+
+    switchValue = true;
 
     router = inject(Router);
 
     ngOnInit(): void {
-        this.switchValue = false;
+        this.switchValue = true;
+    }
+
+    onRegister() {
+        if (!this.acceptTerms) {
+            alert('Devi accettare i termini e le condizioni.');
+            return;
+        }
+
+        if (this.password !== this.confirmPassword) {
+            alert('Le password non coincidono.');
+            return;
+        }
+
+        console.log('Registrazione avvenuta con successo:', {
+            nome: this.nome,
+            cognome: this.cognome,
+            email: this.email
+        });
+
     }
 
     toggleAuthMode() {
-        this.router.navigate(['auth/register']); // Naviga alla nuova rotta
+        this.router.navigate(['auth/login']);
     }
-
 }

@@ -64,6 +64,11 @@ export class AppMenu {
                                 routerLink: ['/auth/login']
                             },
                             {
+                                label: 'Register',
+                                icon: 'pi pi-fw pi-sign-in',
+                                routerLink: ['/auth/register']
+                            },
+                            {
                                 label: 'Error',
                                 icon: 'pi pi-fw pi-times-circle',
                                 routerLink: ['/auth/error']

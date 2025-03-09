@@ -1,0 +1,31 @@
+{
+    "login": {
+        "welcomeMessage": "Welcome to OrdersLand!",
+        "signInMessage": "Sign in to continue",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Email address",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "rememberMeLabel": "Remember me",
+        "forgotPasswordLabel": "Forgot password?",
+        "signInButtonLabel": "Sign In",
+        "toggleSwitchLabel": "Sign In or swipe to Sign Up"
+    },
+    "register": {
+        "welcomeMessage": "Welcome to OrdersLand!",
+        "signUpMessage": "Sign up to continue",
+        "firstNameLabel": "First Name",
+        "firstNamePlaceholder": "First Name",
+        "lastNameLabel": "Last Name",
+        "lastNamePlaceholder": "Last Name",
+        "emailLabel": "Email",
+        "emailLPlaceholder": "Email",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "confirmPasswordLabel": "Confirm Password",
+        "confirmPasswordPlaceholder": "Confirm Password",
+        "acceptTermsLabel": "I accept the terms and conditions",
+        "signUpButtonLabel": "Sign Up",
+        "registerToggleSwitchLabel": "Sign Up or swipe to Sign In"
+    }
+}

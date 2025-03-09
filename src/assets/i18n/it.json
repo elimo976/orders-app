@@ -1,0 +1,31 @@
+{
+    "login": {
+        "welcomeMessage": "Benvenuto in OrdersLand!",
+        "signInMessage": "Accedi per continuare",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Indirizzo email",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "rememberMeLabel": "Ricordami",
+        "forgotPasswordLabel": "Password dimenticata?",
+        "signInButtonLabel": "Accedi",
+        "toggleSwitchLabel": "Accedi o scorri per Registrarti"
+    },
+    "register": {
+        "welcomeMessage": "Benvenuto in OrdersLand!",
+        "signUpMessage": "Registrati per continuare",
+        "firstNameLabel": "Nome",
+        "firstNamePlaceholder": "Nome",
+        "lastNameLabel": "Cognome",
+        "lastNamePlaceholder": "Cognome",
+        "emailLabel": "Email",
+        "emailLPlaceholder": "Email",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "confirmPasswordLabel": "Conferma Password",
+        "confirmPasswordPlaceholder": "Conferma Password",
+        "acceptTermsLabel": "Accetto i termini e le condizioni",
+        "signUpButtonLabel": "Registrati",
+        "registerToggleSwitchLabel": "Registrati o scorri per Accedere"
+    }
+}
